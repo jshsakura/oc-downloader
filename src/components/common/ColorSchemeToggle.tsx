@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { useColorScheme } from '@mui/joy/styles';
-import IconButton, { IconButtonProps } from '@mui/joy/IconButton';
-
-import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
-import LightModeIcon from '@mui/icons-material/LightMode';
+import * as React from "react";
+import { useColorScheme } from "@mui/joy/styles";
+import IconButton, { IconButtonProps } from "@mui/joy/IconButton";
+import DarkModeRoundedIcon from "@mui/icons-material/DarkModeRounded";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import Button from "@mui/joy/Button";
 
 export default function ColorSchemeToggle(props: IconButtonProps) {
   const { onClick, sx, ...other } = props;
@@ -16,8 +16,8 @@ export default function ColorSchemeToggle(props: IconButtonProps) {
     return (
       <IconButton
         size="sm"
-        variant="outlined"
-        color="neutral"
+        variant="soft"
+        color="primary"
         {...other}
         sx={sx}
         disabled
@@ -28,24 +28,24 @@ export default function ColorSchemeToggle(props: IconButtonProps) {
     <IconButton
       id="toggle-mode"
       size="sm"
-      variant="outlined"
-      color="neutral"
+      variant="soft"
+      color={mode === "light" ? "primary" : "neutral"}
       {...other}
       onClick={(event) => {
-        if (mode === 'light') {
-          setMode('dark');
+        if (mode === "light") {
+          setMode("dark");
         } else {
-          setMode('light');
+          setMode("light");
         }
         onClick?.(event);
       }}
       sx={[
         {
-          '& > *:first-child': {
-            display: mode === 'dark' ? 'none' : 'initial',
+          "& > *:first-child": {
+            display: mode === "dark" ? "none" : "initial",
           },
-          '& > *:last-child': {
-            display: mode === 'light' ? 'none' : 'initial',
+          "& > *:last-child": {
+            display: mode === "light" ? "none" : "initial",
           },
         },
         ...(Array.isArray(sx) ? sx : [sx]),

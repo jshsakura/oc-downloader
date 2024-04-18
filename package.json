@@ -5,11 +5,15 @@
   "main": "electron/Main.js",
   "homepage": "./",
   "dependencies": {
+    "@craco/craco": "^7.1.0",
+    "@date-io/date-fns": "^3.0.0",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@fontsource/inter": "^5.0.17",
+    "@fontsource/roboto": "^5.0.12",
     "@mui/icons-material": "^5.15.15",
     "@mui/joy": "^5.0.0-beta.32",
+    "@mui/lab": "^5.0.0-alpha.170",
     "@mui/material": "^5.15.15",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
@@ -22,22 +26,23 @@
     "cross-env": "^7.0.3",
     "electron": "^29.1.5",
     "electron-builder": "^24.13.3",
+    "path-browserify": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3",
     "react-scripts": "^5.0.1",
     "typescript": "^5.2.0",
     "wait-on": "^7.2.0",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "cross-env PORT=3001 react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "cross-env PORT=3001 craco start",
+    "build": "craco build",
+    "test": "craco test",
     "react-start": "cross-env BROWSER=none && yarn start",
     "electron-start": "cross-env ELECTRON_START_URL=http://localhost:3001 && electron .",
     "electron-pack": "yarn build && electron-builder build -c.extraMetadata.main=build/Main.js",
-    "dev": "concurrently \"yarn start \" \"wait-on http://localhost:3001 && cross-env ELECTRON_START_URL=http://localhost:3001 electron .\""
+    "dev": "concurrently \"cross-env BROWSER=none yarn start \" \"wait-on http://localhost:3001 && cross-env ELECTRON_START_URL=http://localhost:3001 electron .\""
   },
   "eslintConfig": {
     "extends": [
