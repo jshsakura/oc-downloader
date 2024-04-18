@@ -5,6 +5,9 @@
 </p>
 
 ### :grinning: This is a project currently under development.
+리액트 + 일렉 트론 기반의 멀티 OS용 파일 다운로더 개발
+<br/>
+<br/>
 
 ## 😽 Thank you so much for helping with development.. 🫶
 #### electron
